@@ -363,6 +363,8 @@ download_data = function(data_kind, final_dir, email, password, ...){
     
     # Print results
     
+    final_dir = paste(final_dir,"/Downloaded_data_(",Sys.Date(),")",sep="")
+    
     if(!exists(final_dir)){
       dir.create(final_dir)
     }
@@ -766,6 +768,12 @@ download_data = function(data_kind, final_dir, email, password, ...){
     rownames(sumData) <- 1:nrow(sumData)
     
     # Print results
+    
+    final_dir = paste(final_dir,"/Downloaded_data_(",Sys.Date(),")",sep="")
+    
+    if(!exists(final_dir)){
+      dir.create(final_dir)
+    }
     
     write.csv(quan_data, paste0(final_dir,"/mapsEval.csv"), row.names=F)
     write.csv(sumData,   paste0(final_dir,"/summ_mapsEval.csv"), row.names=F)
